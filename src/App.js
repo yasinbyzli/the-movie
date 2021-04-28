@@ -9,8 +9,8 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => false);
   return (
     <div className={`app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      <Header isDarkMode = {isDarkMode} setIsDarkMode={setIsDarkMode}/>
       <div className="container">
-        <Header isDarkMode = {isDarkMode} setIsDarkMode={setIsDarkMode}/>
         <MovieList />
       </div>
     </div>
