@@ -3,7 +3,7 @@
     background-color: #000;
     justify-content: space-around;
     align-items: center;
-    height: 50px;
+    height: 80px;
     color: #fff;
     &__logo{
         display: flex;
@@ -26,7 +26,6 @@
             }
             &::placeholder{
                 color: #fff;
-                margin-left: 20px;
             }
         }
 

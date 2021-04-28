@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import './sass/_vendors.scss';
 import './sass/_app.scss';
+import MovieList from "./components/MovieList";
 
 
 function App() {
@@ -10,8 +11,8 @@ function App() {
     <div className={`app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="container">
         <Header isDarkMode = {isDarkMode} setIsDarkMode={setIsDarkMode}/>
+        <MovieList />
       </div>
-        
     </div>
   );
 }
