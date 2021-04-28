@@ -1,0 +1,14 @@
+.app{
+    height: 100vh;
+    transition: all .6s;
+}
+
+.dark-mode{
+    background-color: #000;
+    color: #fff;
+}
+
+.light-mode{
+    background-color: #fff;
+    color: #000;
+}

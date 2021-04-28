@@ -1,0 +1,40 @@
+.header{
+    display: flex;
+    background-color: #000;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    color: #fff;
+    &__logo{
+        display: flex;
+        flex: 0 20%;
+        justify-content: center;
+    }
+    &__search{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        input{
+            width: 80%;
+            background-color: #000;
+            border: none;
+            box-shadow: 0 0 3px #fff;
+            color: #fff;
+            padding: 5px 10px;
+            &:focus{
+                outline: none;
+            }
+            &::placeholder{
+                color: #fff;
+                margin-left: 20px;
+            }
+        }
+
+    }
+    &__navi{
+        display: flex;
+        justify-content: center;
+        flex: 0 20%;
+    }
+}
+
