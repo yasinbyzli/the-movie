@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import * as moviesActions from "../redux/actions/moviesActions";
 import MovieItem from "./MovieItem";
 import '../sass/_movie.scss'
+import ContentLoader from 'react-content-loader'
 
 function MovieList({ movies, actions }) {
 
@@ -11,20 +12,33 @@ function MovieList({ movies, actions }) {
       actions.getMovies()
   }, [])
 
-  console.log(movies)
 
   return (
+
     <div className="row movie-list">
+      {movies.length === 0 &&
+      <div className="d-flex">
+        {[...Array(6)].map((x, i) =>
+          <ContentLoader viewBox="0 0 500 880" key={i}>
+            <rect x="3" y="3" rx="30" ry="30" width="460" height="700" />
+            <rect x="6" y="760" rx="0" ry="0" width="292" height="20" />
+        </ContentLoader>
+        )}
+      </div>
+    }
       {movies.map((movie) => (
         <MovieItem 
             key = {movie.id}
             title = {movie.original_title}
-            overview = {movie.overview}
             image = {movie.poster_path}
             vote_average = {movie.vote_average}
+            id = {movie.id}
         />
       ))}
     </div>
+
+      
+
   );
 }
 
