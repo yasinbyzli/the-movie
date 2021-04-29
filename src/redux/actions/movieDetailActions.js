@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes'
 
-export function currentMovie(movieId) {
-    return { type : actionTypes.CURRENT_MOVIES, payload : movieId}
+export function currentMovie(movie) {
+    return { type : actionTypes.CURRENT_MOVIES, payload : movie}
 }
