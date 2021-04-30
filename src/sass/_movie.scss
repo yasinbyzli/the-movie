@@ -26,3 +26,104 @@
     }
 }
 
+.movie-detail{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    &__trailer{
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+    }
+    &__info{
+        z-index: 8;
+        position: absolute;
+        width: 80%;
+        height: 60%;
+        display: flex;
+        align-items: center;
+        transform: translateY(70%);
+        transition: transform .6s;
+        visibility: hidden;
+        .movie_image{
+            position: relative;
+            height: 100%;
+            img{
+                border-radius: 12px;
+                object-fit: cover;
+                margin-top: 50px;
+            }
+            .back{
+                position: absolute;
+                color: #fff;
+                font-size: 30px;
+                cursor: pointer;
+            }
+        }
+    }
+    &__active{
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+.movie_info{
+    padding: 10px 15px;
+    flex: 1;
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    height: 85%;
+    justify-content: space-around;
+    &__title{
+        span{
+            margin-left: 10px;
+            opacity: .4;
+        }
+    }
+    &__actions{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+        .bar{
+            width: 80px;
+        }
+        .icon{
+            background-color: rgba(223, 222, 222, 0.329);
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba(223, 222, 222, 0.929);
+            }
+            &__active{
+                background-color:  rgba(223, 222, 222, 0.929);
+            }
+        }
+    }
+}
+
+
+.up{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    z-index: 20;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.up_active{
+    display: block;
+}

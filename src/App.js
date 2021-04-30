@@ -10,17 +10,19 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => false);
   return (
     <div className={`app ${isDarkMode ? "dark-mode" : "light-mode"}`}>
-      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <div className="container">
+    
         <Switch>
           <Route path="/" exact>
+          <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+          <div className="container">
             <MovieList />
+          </div>
           </Route>
           <Route path="/movie/details/:id" exact>
             <MovieDetail />
           </Route>
         </Switch>
-      </div>
+      
     </div>
   );
 }
