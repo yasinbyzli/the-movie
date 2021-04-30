@@ -1,6 +1,7 @@
 const initialState = {
     movies : [],
-    currentMovie : {} 
+    currentMovie : {},
+    currentMovieTrailer : {}
 }
 
 export default initialState;
