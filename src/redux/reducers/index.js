@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     moviesReducer,
     MovieDetailReducer,
     movieTrailerReducer,
-    movieCategoriesReducer
+    movieCategoriesReducer,
 })
 
 export default rootReducer;

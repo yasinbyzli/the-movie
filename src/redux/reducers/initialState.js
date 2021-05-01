@@ -6,7 +6,9 @@ const initialState = {
             {key : "odM92ap8_c0"}
         ]
     },
-    categories : []
+    categories : [],
+    search : '',
+    searchValue : []
 }
 
 export default initialState;

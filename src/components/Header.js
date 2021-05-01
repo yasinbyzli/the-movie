@@ -1,10 +1,11 @@
 import React from "react";
 import "../sass/layout/_header.scss";
-import DarkModeToggle from "react-dark-mode-toggle";
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import TheatersIcon from '@material-ui/icons/Theaters';
 import { Link } from 'react-router-dom';
 
-function Header({ isDarkMode, setIsDarkMode }) {
+function Header({ isDarkMode, setIsDarkMode}) {
+
   return (
     <div className="header">
       <div className="header__logo">
@@ -13,19 +14,27 @@ function Header({ isDarkMode, setIsDarkMode }) {
         </Link>
         </div>
       <div className="header__search">
-        <input type="text" placeholder="Film ara..."></input>
+        <input 
+         type="text" 
+         placeholder="Film ara..."
+         >
+
+        </input>
       </div>
       <div className="header__navi">
         <div>
-          <DarkModeToggle
+          <DarkModeSwitch
             onChange={setIsDarkMode}
             checked={isDarkMode}
-            size={80}
+            size={30}
+            style = {{ color: '#fff'}}
           />
         </div>
       </div>
     </div>
   );
 }
+
+
 
 export default Header;
