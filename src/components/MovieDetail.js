@@ -12,16 +12,22 @@ import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
-function MovieDetail({ currentMovie, currentMovieTrailer, actions }) {
-  const { id } = useParams();
+function MovieDetail({ currentMovie, currentMovieTrailer, categories, actions }) {
+  
+    const { id } = useParams();
 
   useEffect(() => {
-    actions.currentMovieTrailer(id);
+    actions.currentMovieTrailer(currentMovie.id);
   }, []);
 
-  let key = currentMovieTrailer.results[0].key;
 
-  const [activeDetail, setActiveDetail] = useState(true);
+
+  const  key = currentMovieTrailer.results[0].key;
+
+  const category = categories.genres.filter(category => {
+      return currentMovie.genre_ids.find(genreId => genreId === category.id);
+  })
+  
   const [isMute, setIsMute] = useState(false);
   const [isInfo, setIsInfo] = useState(true);
 
@@ -33,8 +39,8 @@ function MovieDetail({ currentMovie, currentMovieTrailer, actions }) {
       setIsInfo(!isInfo)
   }
 
-  console.log(currentMovie);
   const date = currentMovie.release_date.split("-")[0];
+
   return (
     <div className="movie-detail">
       
@@ -67,6 +73,14 @@ function MovieDetail({ currentMovie, currentMovieTrailer, actions }) {
                 ({date})
             </span>
           </h2>
+
+          <ul className="category">
+              {
+                  category.map(cate => (
+                      <li key={cate.id}> {cate.name}</li>
+                  ))
+              }
+          </ul>
 
           <div className="movie_info__actions">
             <div className="bar">
@@ -111,6 +125,7 @@ const mapStateToProps = (state) => {
   return {
     currentMovie: state.MovieDetailReducer,
     currentMovieTrailer: state.movieTrailerReducer,
+    categories : state.movieCategoriesReducer
   };
 };
 

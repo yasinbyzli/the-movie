@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as moviesActions from "../redux/actions/moviesActions";
+import * as moviesDetailActions from "../redux/actions/movieDetailActions";
 import MovieItem from "./MovieItem";
 import '../sass/_movie.scss'
 import ContentLoader from 'react-content-loader'
@@ -10,6 +11,7 @@ function MovieList({ movies, actions }) {
 
   useEffect(() => {
       actions.getMovies()
+      actions.getCategories();
   }, [])
 
 
@@ -52,7 +54,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: {
-      getMovies: bindActionCreators(moviesActions.getMovies, dispatch)
+      getMovies: bindActionCreators(moviesActions.getMovies, dispatch),
+      getCategories : bindActionCreators(moviesDetailActions.getCategories, dispatch)
     },
   };
 };
